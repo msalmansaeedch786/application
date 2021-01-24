@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: easynotes-networkpolicy
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      db: mongodb
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: easynotes
+  policyTypes:
+  - Ingress
