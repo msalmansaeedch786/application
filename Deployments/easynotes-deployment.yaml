@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: easynotes-deployment
+  labels:
+    app: easynotes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: easynotes
+  template:
+    metadata:
+      labels:
+        app: easynotes
+    spec:
+      containers:
+      - name: easynotes
+        image: msalmansaeedch786/easynotesrepo:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGO_URL
+          value: mongodb://mongodb-service:27017/easy-notes
+      restartPolicy: Always

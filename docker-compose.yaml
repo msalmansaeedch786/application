@@ -1,0 +1,28 @@
+version: '3.7'
+
+volumes:
+  mongo-db:
+
+networks:
+  easynotesnetwork:
+
+services:
+
+  mongodb:
+    image: mongo
+    restart: always
+    networks:
+      - easynotesnetwork
+    volumes:
+     - mongo-db:/data/db
+
+  easynotes:
+    build: .
+    image: easynotesimage
+    restart: always
+    networks:
+      - easynotesnetwork
+    environment:
+      MONGO_URL: 'mongodb://mongodb:27017/easy-notes'
+    ports:
+      - 3000:3000
