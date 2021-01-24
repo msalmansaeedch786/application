@@ -15,7 +15,6 @@ npm install
 ```bash
 node server.js
 ```
-
 You can browse the apis at <http://localhost:3000>
 
 3. Compose Deploymennt
@@ -26,12 +25,25 @@ docker-compose up
 docker-compose down
 ```
 
-4. Kubernetes Deploymennt
+4. Minikube Cluster
 
 ```bash
-kubectl apply -f Deployments
+minikube start --network-plugin=cni --cni=calico
+```
+Start minikube using above command to enable calico
 
-kubectl delete -f Deployments
+5. Kubernetes Deploymennt
+
+```bash
+kubectl apply -f ./Deployments
+
+kubectl delete -f ./Deployments
+```
+
+6. Access Application
+
+```bash
+minikube service easynotes-service
 ```
 
 ## Tutorial
