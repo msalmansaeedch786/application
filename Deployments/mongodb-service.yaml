@@ -2,10 +2,13 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mongodb-service
+  labels:
+    role: db
 spec:
   selector:
-    db: mongodb
+    role: db
   ports:
   - protocol: TCP 
     port: 27017
     targetPort: 27017
+  type: ClusterIP

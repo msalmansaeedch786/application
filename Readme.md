@@ -40,10 +40,24 @@ kubectl apply -f ./Deployments
 kubectl delete -f ./Deployments
 ```
 
-6. Access Application
+6. Helm Deployment
 
 ```bash
-minikube service easynotes-service
+helm install mongodb-chart ./helm-chart/charts/mongodb/ -f ./helm-chart/values.yaml
+
+helm install easynotes-chart ./helm-chart/charts/easynotes/ -f ./helm-chart/values.yaml
+
+
+
+helm uninstall mongodb-chart easynotes-chart
+```
+
+7. Access Application
+
+```bash
+kubectl get services
+
+minikube service <service_name>
 ```
 
 ## Tutorial

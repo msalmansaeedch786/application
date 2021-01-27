@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: easynotes-deployment
   labels:
-    app: easynotes
+    role: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: easynotes
+      role: frontend
   template:
     metadata:
       labels:
-        app: easynotes
+        role: frontend
     spec:
       containers:
       - name: easynotes

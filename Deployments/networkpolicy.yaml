@@ -6,11 +6,11 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      db: mongodb
+      role: db
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          app: easynotes
+          role: frontend
   policyTypes:
   - Ingress

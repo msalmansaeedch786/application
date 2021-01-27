@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: mongodb-deployment
   labels:
-    db: mongodb
+    role: db
 spec:
   replicas: 1
   selector:
     matchLabels:
-      db: mongodb
+      role: db
   template:
     metadata:
       labels:
-        db: mongodb
+        role: db
     spec:
       containers:
       - name: mongodb

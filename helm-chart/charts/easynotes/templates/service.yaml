@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "helm-chart.fullname" . }}
+  labels:
+    {{- include "helm-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.easynotesservice.type }}
+  ports:
+    - port: {{ .Values.easynotesservice.port }}
+      targetPort: {{ .Values.easynotesservice.targetPort }}
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "helm-chart.selectorLabels" . | nindent 4 }}
