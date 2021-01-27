@@ -30,12 +30,12 @@ easynotesdeployment:
 
 mongodbnaming:
   imagePullSecrets: []
-  nameOverride: ""
+  nameOverride: "mongodb"
   fullnameOverride: "mongodb"
 
 easynotesnaming:
   imagePullSecrets: []
-  nameOverride: ""
+  nameOverride: "easynotes"
   fullnameOverride: "easynotes"
 
 serviceAccount:
